@@ -21,7 +21,7 @@ public class StatisticsController {
 
     private final StatisticsService statisticsService;
 
-    @Operation(summary = "Получить топ-10 популярных ссылок", description = "Возвращает список наиболее используемых сокращённых ссылок")
+    @Operation(summary = "Get the top 10 popular links", description = "Returns a list of the most used shortened links")
     @GetMapping("/top")
     public ResponseEntity<List<UrlBindingDTO>> getTopLinks() {
         List<UrlBinding> topLinks = statisticsService.getTop10PopularLinks();
@@ -31,7 +31,7 @@ public class StatisticsController {
         return ResponseEntity.ok(dtoList);
     }
 
-    @Operation(summary = "Статистика ссылок по пользователю", description = "Возвращает список UrlBindingDTO по userId")
+    @Operation(summary = "Link statistics by user", description = "Returns a list of UrlBindingDTO by userId")
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<UrlBindingDTO>> getUserStats(@PathVariable Long userId) {
         List<UrlBinding> stats = statisticsService.getStatsByUser(userId);

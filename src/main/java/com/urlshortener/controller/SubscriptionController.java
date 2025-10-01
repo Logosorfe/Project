@@ -18,14 +18,14 @@ public class SubscriptionController {
 
     private final SubscriptionService subscriptionService;
 
-    @Operation(summary = "Создать подписку для пользователя", description = "Оформляет новую подписку по userId")
+    @Operation(summary = "Create a subscription for the user", description = "Registers a new subscription by userId")
     @PostMapping("/{userId}")
     public ResponseEntity<SubscriptionDTO> create(@PathVariable Long userId) {
         Subscription subscription = subscriptionService.create(userId);
         return ResponseEntity.ok(SubscriptionDtoMapper.toDto(subscription));
     }
 
-    @Operation(summary = "Получить все подписки пользователя", description = "Возвращает список подписок по userId")
+    @Operation(summary = "Get all user subscriptions", description = "Returns a list of subscriptions by userId")
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<SubscriptionDTO>> getUserSubscriptions(@PathVariable Long userId) {
         List<Subscription> list = subscriptionService.findByUser(userId);

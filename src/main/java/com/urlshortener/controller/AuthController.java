@@ -26,7 +26,7 @@ public class AuthController {
     private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
 
-    @Operation(summary = "Регистрация пользователя", description = "Создаёт нового пользователя в системе")
+    @Operation(summary = "User Registration", description = "Creates a new user in the system")
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody AuthRequestDTO dto) {
         User user = User.builder()
@@ -36,10 +36,10 @@ public class AuthController {
                 .build();
 
         userService.register(user);
-        return ResponseEntity.ok("Пользователь успешно зарегистрирован");
+        return ResponseEntity.ok("The user has been successfully registered");
     }
 
-    @Operation(summary = "Аутентификация пользователя", description = "Проверяет email и пароль, возвращает JWT токен")
+    @Operation(summary = "User authentication", description = "Checks email and password, returns a JWT token")
     @PostMapping("/login")
     public ResponseEntity<AuthResponseDTO> login(@RequestBody AuthRequestDTO dto) {
         Optional<User> userOpt = userService.findByEmail(dto.getEmail());

@@ -16,7 +16,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @Operation(summary = "Регистрация пользователя через DTO", description = "Позволяет создать нового пользователя")
+    @Operation(summary = "User registration via DTO", description = "Allows creating a new user")
     @PostMapping("/register")
     public ResponseEntity<UserDTO> register(@RequestBody UserDTO dto) {
         User user = UserDtoMapper.toEntity(dto);           // ручной маппинг
@@ -24,7 +24,7 @@ public class UserController {
         return ResponseEntity.ok(UserDtoMapper.toDto(saved));
     }
 
-    @Operation(summary = "Получить пользователя по email", description = "Возвращает DTO пользователя по email")
+    @Operation(summary = "Get user by email", description = "Returns the user DTO by email")
     @GetMapping("/{email}")
     public ResponseEntity<UserDTO> getByEmail(@PathVariable String email) {
         return userService.findByEmail(email)

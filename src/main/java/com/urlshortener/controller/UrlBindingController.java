@@ -18,7 +18,7 @@ public class UrlBindingController {
 
     private final UrlBindingService urlBindingService;
 
-    @Operation(summary = "Создать короткую ссылку", description = "Принимает DTO и возвращает сохранённую связку")
+    @Operation(summary = "Create a short link", description = "Accepts a DTO and returns the saved pair")
     @PostMapping
     public ResponseEntity<UrlBindingDTO> create(@RequestBody UrlBindingDTO dto) {
         UrlBinding entity = UrlBindingDtoMapper.toEntity(dto);
@@ -27,7 +27,7 @@ public class UrlBindingController {
         return ResponseEntity.ok(response);
     }
 
-    @Operation(summary = "Получить все ссылочные связки пользователя", description = "Возвращает список UrlBindingDTO по userId")
+    @Operation(summary = "Get all user URL bindings", description = "Returns a list of UrlBindingDTO by userId")
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<UrlBindingDTO>> getUserBindings(@PathVariable Long userId) {
         List<UrlBinding> list = urlBindingService.findByUserId(userId);
@@ -37,7 +37,7 @@ public class UrlBindingController {
         return ResponseEntity.ok(dtoList);
     }
 
-    @Operation(summary = "Получить ссылку по UID", description = "Ищет UrlBinding по уникальному идентификатору")
+    @Operation(summary = "Get link by UID", description = "Searches UrlBinding by unique identifier")
     @GetMapping("/{uid}")
     public ResponseEntity<UrlBindingDTO> getByUid(@PathVariable String uid) {
         return urlBindingService.findByUid(uid)
