@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         info = @Info(
                 title = "URL Shortener API",
                 version = "1.0",
-                description = "Документация к API для сокращения URL, пользователей и статистики"
+                description = "API documentation for URL shortening, user management, and statistics"
         )
 )
 @SpringBootApplication

@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 public class AuthRequestDTO {
     private String email;
     private String password;
-    private Role role; // можно опустить при логине
+    private Role role;
 }

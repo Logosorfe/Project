@@ -43,7 +43,7 @@ public class UrlBindingServiceImpl implements UrlBindingService {
 
     @Override
     public UrlBinding createBinding(String originalUrl, String baseUrl, User user) {
-        String uid = UUID.randomUUID().toString().substring(0, 8); // генерируем uid
+        String uid = UUID.randomUUID().toString().substring(0, 8);
 
         UrlBinding binding = UrlBinding.builder()
                 .originalUrl(originalUrl)
