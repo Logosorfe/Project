@@ -18,7 +18,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 
     @Override
     public List<UrlBinding> getTop10PopularLinks() {
-        return urlBindingRepository.findTop10ByOrderByCountDesc();
+        return urlBindingRepository.findTop10();
     }
 
     @Override
